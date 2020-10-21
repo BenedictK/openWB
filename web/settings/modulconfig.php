@@ -4161,6 +4161,7 @@
 							<option <?php if($wattbezugmodulold == "bezug_sbs25\n") echo "selected" ?> value="bezug_sbs25">SMA Sunny Boy Storage </option>
 							<option <?php if($wattbezugmodulold == "bezug_kostalplenticoreem300haus\n") echo "selected" ?> value="bezug_kostalplenticoreem300haus">Kostal Plenticore mit EM300/KSEM</option>
 							<option <?php if($wattbezugmodulold == "bezug_kostalpiko\n") echo "selected" ?> value="bezug_kostalpiko">Kostal Piko mit Energy Meter</option>
+							<option <?php if($wattbezugmodulold == "bezug_kostalpikoba\n") echo "selected" ?> value="bezug_kostalpikoba">Kostal Piko BA mit Sensor</option>
 							<option <?php if($wattbezugmodulold == "bezug_ksem\n") echo selected ?> value="bezug_ksem">Kostal Smart Energy Meter oder TQ EM410</option>
 							<option <?php if($wattbezugmodulold == "bezug_smartfox\n") echo "selected" ?> value="bezug_smartfox">Smartfox</option>
 							<option <?php if($wattbezugmodulold == "bezug_powerwall\n") echo "selected" ?> value="bezug_powerwall">Tesla Powerwall</option>
@@ -4329,6 +4330,13 @@
 					<div id="wattbezugkostalpiko">
 						<div class="row" style="background-color:#febebe">
 							IP Adresse wird im PV Modul konfiguriert. Angeschlossenes Meter erforderlich. Der WR liefert Werte nur solange er auch PV Leistung liefert. Nachts geht er in den Standby.<br>
+							Die Hausanschlussüberwachung ist nur aktiv wenn der Wechselrichter auch aktiv ist.<br>
+							Ein extra PV-Modul muss nicht mehr ausgewählt werden.
+						</div>
+					</div>
+					<div id="wattbezugkostalpikoba">
+						<div class="row" style="background-color:#febebe">
+							IP Adresse wird im PV Modul konfiguriert. Angeschlossener Sensor erforderlich.<br>
 							Die Hausanschlussüberwachung ist nur aktiv wenn der Wechselrichter auch aktiv ist.<br>
 							Ein extra PV-Modul muss nicht mehr ausgewählt werden.
 						</div>
@@ -4692,6 +4700,7 @@
 							$('#wattbezugethmpm3pm').hide();
 							$('#wattbezugplentihaus').hide();
 							$('#wattbezugkostalpiko').hide();
+							$('#wattbezugkostalpikoba').hide();
 							$('#wattbezugkostalsmartenergymeter').hide();
 							$('#wattbezugsmartfox').hide();
 							$('#wattbezugpowerwall').hide();
@@ -4813,6 +4822,9 @@
 							}
 							if($('#wattbezugmodul').val() == 'bezug_kostalpiko')   {
 								$('#wattbezugkostalpiko').show();
+							}
+							if($('#wattbezugmodul').val() == 'bezug_kostalpikoba')   {
+								$('#wattbezugkostalpikoba').show();
 							}
 							if($('#wattbezugmodul').val() == 'bezug_ksem')   {
                                                                 $('#wattbezugkostalsmartenergymeter').show();
