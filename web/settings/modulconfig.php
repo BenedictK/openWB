@@ -4178,6 +4178,7 @@
 							<option <?php if($wattbezugmodulold == "bezug_powerdog\n") echo "selected" ?> value="bezug_powerdog">Powerdog</option>
 							<option <?php if($wattbezugmodulold == "bezug_rct\n") echo "selected" ?> value="bezug_rct">RCT</option>
 							<option <?php if($wattbezugmodulold == "bezug_varta\n") echo "selected" ?> value="bezug_varta">Varta Speicher</option>
+							<option <?php if($wattbezugmodulold == "bezug_sungrow\n") echo "selected" ?> value="bezug_sungrow">Sungrow Speicher</option>
 						</select>
 					</div>
 					<div id="wattbezugsonneneco">
@@ -4885,6 +4886,8 @@
 							<option <?php if($pvwattmodulold == "wr_rct\n") echo "selected" ?> value="wr_rct">RCT</option>
 							<option <?php if($pvwattmodulold == "wr_huawei\n") echo "selected" ?> value="wr_huawei">Huawei</option>
 							<option <?php if($pvwattmodulold == "wr_victron\n") echo "selected" ?> value="wr_victron">Victron</option>
+							<option <?php if($pvwattmodulold == "wr_sungrow\n") echo "selected" ?> value="wr_sungrow">Sungrow Speicher</option>
+
 						</select>
 					</div>
 
@@ -5586,6 +5589,7 @@
 							<option <?php if($speichermodulold == "speicher_fems\n") echo "selected" ?> value="speicher_fems">openEMS / Fenecon FEMS / Kaco Hy-Control</option>
 							<option <?php if($speichermodulold == "speicher_siemens\n") echo "selected" ?> value="speicher_siemens">Siemens</option>
 							<option <?php if($speichermodulold == "speicher_rct\n") echo "selected" ?> value="speicher_rct">RCT</option>
+							<option <?php if($speichermodulold == "speicher_sungrow\n") echo "selected" ?> value="speicher_sungrow">Sungrow Hybrid</option>
 						</select>
 					</div>
 
@@ -5657,6 +5661,12 @@
 							IP Adresse des Siemens Speichers. Im Siemens Speicher muss als Schnittstelle openWB gewählt werden.
 						</div>
 					</div>
+					<div id="divspeichersungrow">
+							<div class="row" style="background-color:#fcbe1e">
+							Angabe der IP Adresse. Ebenso muss Sungrow als PV und EVU Modul gewählt werden.
+						</div>
+					</div>
+
 					<div id="divspeicherrct">
 							<div class="row" style="background-color:#fcbe1e">
 							Konfiguration im zugehörigen EVU Modul.
@@ -5875,6 +5885,7 @@
 							$('#divspeicherip').hide();
 							$('#divspeicherrct').hide();
 							$('#divspeichersiemens').hide();
+							$('#divspeichersungrow').hide();
 
 							if($('#speichermodul').val() == 'speicher_fems') {
 								$('#divspeicherfems').show();
@@ -5885,6 +5896,10 @@
 							if($('#speichermodul').val() == 'speicher_siemens') {
 								$('#divspeicherip').show();
 								$('#divspeichersiemens').show();
+							}
+							if($('#speichermodul').val() == 'speicher_sungrow') {
+								$('#divspeicherip').show();
+								$('#divspeichersungrow').show();
 							}
 
 							if($('#speichermodul').val() == 'speicher_alphaess') {
